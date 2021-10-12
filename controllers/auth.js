@@ -1,5 +1,8 @@
 const User = require("../models/userSchema.js") ;
-const bcrypt = require("bcryptjs") ;
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
+
 
 exports.register = async ( req , res ) => {
     const { name , email , password } = req.body ;
@@ -33,5 +36,6 @@ exports.login = async ( req , res ) => {
     if (!correctPass) return res.status(400).send("Password is wrong");
     
     // LOGIN USER
-    return res.status(200).send("Logged In!");
-} ;
+    const token = await jwt.sign({ _id : user._id } , process.env.TOKEN_SECRET ) ;
+    return res.header("auth-header" , token).send(token);
+};
