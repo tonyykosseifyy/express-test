@@ -3,6 +3,7 @@ const express = require("express") ;
 require("dotenv").config() ;
 const mongoose = require("mongoose") ;
 const cors = require("cors") ;
+const authRoutes = require("./routes/auth.js") ;
 
 // DECLARING .ENV VARIABLES 
 const port = process.env.PORT ;
@@ -15,6 +16,8 @@ app.use(express.json()) ;
 app.use(cors()) ;
 
 
+// ROUTES 
+app.use("/api" , authRoutes ) ;
 
 //  MONGOOSE CONNECTION 
 mongoose.connect(
