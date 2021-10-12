@@ -18,3 +18,10 @@ Content-Type: application/json
     "email": "tonyy@michael.com",
     "password": "1234567"
 }
+
+
+### POSTS REQUEST 
+
+GET http://localhost:3000/api/posts  HTTP/1.1
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY1NjE0M2Q1MGE2MzIwOTc5ZjQwMGUiLCJpYXQiOjE2MzQwNjU3OTh9.YDPeZctCNkGMlWoB7TdSxpn6rnPaJEDMoihRQJ0yxHs
