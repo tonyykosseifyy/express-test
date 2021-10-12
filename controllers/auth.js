@@ -35,7 +35,9 @@ exports.login = async ( req , res ) => {
     const correctPass = await bcrypt.compare(password , user.password) ;
     if (!correctPass) return res.status(400).send("Password is wrong");
     
-    // LOGIN USER
+    // GENERATING THE TOKEN 
     const token = await jwt.sign({ _id : user._id } , process.env.TOKEN_SECRET ) ;
     return res.header("auth-header" , token).send(token);
+    
 };
+
